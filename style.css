@@ -90,16 +90,18 @@ section {
 
                 & .dog-information {
                     font-weight: bold;
+                    color: #beff1b;
                 }
 
                 & h2 {
                     font-size: 8em;
                     line-height: 1em;
                     font-family: "League Gothic", sans-serif;
+                    color: #beff1b;
                 }
 
                 & .description {
-                    color: #333;
+                    color: #beff1b;
                     font-size: 12px;
                     text-align: right;
                     max-width: 400px;
@@ -127,7 +129,7 @@ section {
             height: 200px;
             width: 100%;
             top: 50%;
-            border-top: 1px solid #000;
+           
         }
     }
 
@@ -153,6 +155,7 @@ section {
                 width: 100px;
                 margin-top: -25px;
                 margin-left: -25px;
+                
             }
 
             &:hover {
