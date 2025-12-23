@@ -38,7 +38,7 @@ header {
 }
 
 section {
-    
+
     background-image: radial-gradient(blueviolet, gold);
     height: 100vh;
     position: relative;
@@ -129,7 +129,7 @@ section {
             height: 200px;
             width: 100%;
             top: 50%;
-           
+
         }
     }
 
@@ -155,7 +155,7 @@ section {
                 width: 100px;
                 margin-top: -25px;
                 margin-left: -25px;
-                
+
             }
 
             &:hover {
@@ -207,7 +207,7 @@ section {
 section {
 
     & .list {
-    --calculation:1;    
+        --calculation: 1;
 
         & .item {
             transform: translateX(100vw * var(--calculation));
@@ -273,5 +273,102 @@ section {
 
             }
         }
+    }
+}
+
+
+/* Media Query para celular */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        overflow: auto;
+        /* permite rolagem em telas pequenas */
+    }
+
+    header {
+        grid-template-columns: 1fr;
+        /* empilha logo e menu */
+        gap: 20px;
+        width: 100vw;
+        padding: 10px;
+    }
+
+    header img {
+        width: 150px;
+        /* reduz logo */
+        margin: auto;
+    }
+
+    nav ul {
+        grid-template-columns: 1fr;
+        /* menu em coluna */
+        text-align: center;
+        gap: 10px;
+    }
+
+    section .list {
+        width: 90vw;
+        /* ocupa mais espaço da tela */
+    }
+
+    section .list .item .dog-img {
+        width: 100%;
+        /* imagem ocupa toda largura */
+    }
+
+    section .list .item .content {
+        position: static;
+        /* remove posicionamento absoluto */
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    section .list .item .content h2 {
+        font-size: 3em;
+        /* reduz título */
+    }
+
+    section .list .item .content .description {
+        font-size: 14px;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    section .list .item .content .information {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .arrow {
+        width: 100vw;
+        justify-content: space-around;
+    }
+
+    .arrow button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .arrow button img {
+        width: 80px;
+        margin-top: -20px;
+        margin-left: -20px;
+    }
+
+    .indicators {
+        width: 100vw;
+        gap: 10px;
+    }
+
+    .indicators .number {
+        font-size: 2.5em;
+    }
+
+    ul li {
+        width: 30px;
+        height: 4px;
     }
 }
