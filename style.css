@@ -226,7 +226,11 @@ section .list .item.active .content .information {
 @media (max-width: 768px) {
     body {
         font-size: 14px;
-        overflow: auto;
+        overflow-x: hidden; /* evita scroll lateral */
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
     }
 
     header {
@@ -245,66 +249,19 @@ section .list .item.active .content .information {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 10px;
+        width: 100vw;
+        padding: 0;
+        margin: 0;
     }
 
     section .list {
-        width: 90vw;
+        width: 100vw; /* antes estava 90vw */
+        margin: 0;
+        padding: 0;
     }
 
     section .list .item .dog-img {
         width: 100%;
     }
 
-    section .list .item .content {
-        position: static;
-        width: 100%;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-    }
-
-    section .list .item .content h2 {
-        font-size: 3em;
-    }
-
-    section .list .item .content .description {
-        font-size: 14px;
-        max-width: 90%;
-        text-align: center;
-    }
-
-    section .list .item .content .information {
-        width: 100px;
-        height: 30px;
-        font-size: 12px;
-    }
-
-    .arrow {
-        width: 100vw;
-        justify-content: space-around;
-    }
-
-    .arrow button {
-        width: 40px;
-        height: 40px;
-    }
-
-    .arrow button img {
-        width: 80px;
-        margin: -20px 0 0 -20px;
-    }
-
-    .indicators {
-        width: 100vw;
-        gap: 10px;
-    }
-
-    .indicators .number {
-        font-size: 2.5em;
-    }
-
-    .indicators ul li {
-        width: 30px;
-        height: 4px;
-    }
 }
