@@ -1,46 +1,38 @@
-let prevButton = document.getElementById('prev')
-let nextButton = document.getElementById('next')
-let container = document.querySelector('.container')
-let items = container.querySelectorAll('.list .item')
-let indicator = document.querySelector('.indicators')
-let dots = indicator.querySelectorAll('ul li')
-let list = container.querySelector('.list')
 
-let active = 0
-let firstPosition = 0
-let lastPosition = items.length - 1
+const items = document.querySelectorAll('.list .item');
+const indicators = document.querySelectorAll('.indicators ul li');
+const number = document.querySelector('.indicators .number');
+const prevBtn = document.querySelector('.arrow button:first-child');
+const nextBtn = document.querySelector('.arrow button:last-child');
 
-function setSlider() {
-    let itemOld = container.querySelector('.list .item.active')
-    itemOld.classList.remove('active')
-    
+let activeIndex = 0;
 
+function updateSlider(index) {
+    // remove ativo anterior
+    items.forEach(item => item.classList.remove('active'));
+    indicators.forEach(ind => ind.classList.remove('active'));
 
-    let dotsOld = indicator.querySelector('ul li.active')
-    dotsOld.classList.remove('active')
-    dots[active].classList.add('active')
-
-    indicator.querySelector('.number').innerHTML = '0' + (active + 1)
-
-
+    // adiciona ativo novo
+    items[index].classList.add('active');
+    indicators[index].classList.add('active');
+    number.textContent = String(index + 1).padStart(2, '0');
 }
 
+prevBtn.addEventListener('click', () => {
+    activeIndex = (activeIndex - 1 + items.length) % items.length;
+    updateSlider(activeIndex);
+});
 
-nextButton.onclick = () => {
+nextBtn.addEventListener('click', () => {
+    activeIndex = (activeIndex + 1) % items.length;
+    updateSlider(activeIndex);
+});
 
-    list.style.setProperty('--calculation', 1)
+// clique nos indicadores
+indicators.forEach((ind, i) => {
+    ind.addEventListener('click', () => {
+        activeIndex = i;
+        updateSlider(activeIndex);
+    });
+});
 
-    active = active + 1 > lastPosition ? 0 : active + 1
-    setSlider()
-    items[active].classList.add('active')
-
-}
-
-prevButton.onclick = () => {
-
-    list.style.setProperty('--calculation', -1)
-
-    active = active - 1 < firstPosition ? lastPosition : active - 1
-    setSlider()
-    items[active].classList.add('active')
-}

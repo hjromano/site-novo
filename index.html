@@ -1,118 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top dogs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sriracha&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sriracha&display=swap"
-        rel="stylesheet">
+    <title>Dogs Showcase</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <header>
-        <img src="imagens/logo-nova.png" alt="logo fp">
+<body> <!-- Header -->
+    <header> <img src="imagens/logo-nova.png" alt="Logo">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Dogs</a></li>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Raças</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
-    </header>
-
-    <section class="container">
-        <div class="list">
+    </header> <!-- Seção principal -->
+    <section>
+        <div class="list"> <!-- Item ativo -->
             <div class="item active">
-                <div class="dog-img">
-                    <img src="imagens/dalma-nova.png" alt="dalmatas">
+                <div class="dog-img"> <img src="imagens/dalma-nova.png" alt="Cachorro 1"> </div>
+                <div class="content"> <span class="dog-information">Raça: Dalmatas</span>
+                    <h2>Dalmatas</h2>
+                    <p class="description">O Dalmatas é conhecido por sua energia, inteligência e companheirismo.</p>
+                    <button class="information">Saiba mais</button>
                 </div>
-                <div class="content">
-                    <p class="dog-information">
-                        Dócil
-                    </p>
-                    <h2>
-                        Dalmatas
-                    </h2>
-                    <p class="description">Dalmatas são cães de porte médio, conhecidos por sua pelagem manchada e
-                        natureza amigável.
-                    </p>
-                    <button class="information">
-                        Saiba mais
-                    </button>
+            </div> <!-- Outro item -->
+            <div class="item">
+                <div class="dog-img"> <img src="imagens/pit.png" alt="Cachorro 2"> </div>
+                <div class="content"> <span class="dog-information">Raça: Pittbull</span>
+                    <h2>Pittbull</h2>
+                    <p class="description">O Pittbull é famoso por sua resistência e beleza marcante.</p> <button
+                        class="information">Saiba mais</button>
                 </div>
             </div>
-
-            <div class="list">
-                <div class="item">
-                    <div class="dog-img">
-                        <img src="imagens/pit.png" alt="Pitbull">
-                    </div>
-                    <div class="content">
-                        <p class="dog-information">
-                            Bravo
-                        </p>
-                        <h2>
-                            Pitbull
-                        </h2>
-                        <p class="description"> Pitbull são cães de porte médio bastante agressivos, poém se bem cuidado
-                            se torna bastante docil e protetor.
-                        </p>
-                        <button class="information">
-                            Saiba mais
-                        </button>
-                    </div>
-                </div>
-
-                <div class="list">
-                    <div class="item">
-                        <div class="dog-img">
-                            <img src="imagens/pastor.png" alt="Pastor">
-                        </div>
-                        <div class="content">
-                            <p class="dog-information">
-                                Territorialista
-                            </p>
-                            <h2>
-                                Pastor Alemão
-                            </h2>
-                            <p class="description">Pastor Alemão são cães de porte grande, bastante utilizados por
-                                policiais por serem inteligentes e fieis.
-                            </p>
-                            <button class="information">
-                                Saiba mais
-                            </button>
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <div class="arrow">
-                    <button id="prev"><img src="imagens/seta-direita.png" alt="seta direita"></button>
-                    <button id="next"><img src="imagens/seta-esquerda.png" alt="seta esquerda"></button>
-                </div>
-
-                <div class="indicators">
-                    <div class="number">01</div>
-                    <ul>
-                        <li class="active"></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
+        </div> <!-- Setas -->
+        <div class="arrow"> <button><img src="imagens/seta-direita.png" alt="Anterior"></button> <button><img
+                    src="imagens/seta-esquerda.png" alt="Próximo"></button> </div> <!-- Indicadores -->
+        <div class="indicators">
+            <div class="number">01</div>
+            <ul>
+                <li class="active"></li>
+                <li></li>
+            </ul>
+        </div>
     </section>
-
     <script src="script.js"></script>
-
 </body>
 
 </html>
