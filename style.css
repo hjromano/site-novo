@@ -267,7 +267,7 @@ section .list {
 @media (max-width: 768px) {
     body {
         font-size: 14px;
-        overflow: auto;
+        overflow: none;
         /* permite rolagem em telas pequenas */
     }
 
