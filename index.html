@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogs Showcase</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrossel Responsivo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <header>
+    <img src="imagens/logo-nova.png" alt="Logo">
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<body> <!-- Header -->
-    <header> <img src="imagens/logo-nova.png" alt="Logo">
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Raças</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header> <!-- Seção principal -->
-    <section>
-        <div class="list"> <!-- Item ativo -->
-            <div class="item active">
-                <div class="dog-img"> <img src="imagens/dalma-nova.png" alt="Cachorro 1"> </div>
-                <div class="content"> <span class="dog-information">Raça: Dalmatas</span>
-                    <h2>Dalmatas</h2>
-                    <p class="description">O Dalmatas é conhecido por sua energia, inteligência e companheirismo.</p>
-                    <button class="information">Saiba mais</button>
-                </div>
-            </div> <!-- Outro item -->
-            <div class="item">
-                <div class="dog-img"> <img src="imagens/pit.png" alt="Cachorro 2"> </div>
-                <div class="content"> <span class="dog-information">Raça: Pittbull</span>
-                    <h2>Pittbull</h2>
-                    <p class="description">O Pittbull é famoso por sua resistência e beleza marcante.</p> <button
-                        class="information">Saiba mais</button>
-                </div>
-            </div>
-        </div> <!-- Setas -->
-        <div class="arrow"> <button><img src="imagens/seta-direita.png" alt="Anterior"></button> <button><img
-                    src="imagens/seta-esquerda.png" alt="Próximo"></button> </div> <!-- Indicadores -->
-        <div class="indicators">
-            <div class="number">01</div>
-            <ul>
-                <li class="active"></li>
-                <li></li>
-            </ul>
+  <section>
+    <div class="list">
+      <!-- Slide 1 -->
+      <div class="item active">
+        <div class="dog-img">
+          <img src="imagens/dalma-nova.png" alt="Cachorro 1">
         </div>
-    </section>
-    <script src="script.js"></script>
-</body>
+        <div class="content">
+          <div class="dog-information">Raça: Dalmatas</div>
+          <h2>Dalmatas</h2>
+          <div class="description">Um cachorro amigável e brincalhão, perfeito para famílias.</div>
+          <button class="information">Saiba mais</button>
+        </div>
+      </div>
 
+      <!-- Slide 2 -->
+      <div class="item">
+        <div class="dog-img">
+          <img src="imagens/pit.png" alt="Cachorro 2">
+        </div>
+        <div class="content">
+          <div class="dog-information">Raça: Pitbull</div>
+          <h2>Pitbull</h2>
+          <div class="description">Cheio de energia e muito brincalhão, adora aventuras ao ar livre.</div>
+          <button class="information">Saiba mais</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Setas -->
+    <div class="arrow">
+      <button class="prev"><img src="imagens/seta-direita.png" alt="Anterior"></button>
+      <button class="next"><img src="imagens/seta-esquerda.png" alt="Próximo"></button>
+    </div>
+
+    <!-- Indicadores -->
+    <div class="indicators">
+      <div class="number">01</div>
+      <ul>
+        <li class="active"></li>
+        <li></li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
 </html>
