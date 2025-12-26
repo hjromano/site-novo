@@ -209,20 +209,26 @@ section .indicators ul .active {
 
 /* CELULAR (até 768px) */
 
-@media screen and (max-width: 768px) {
-  /* Cabeçalho */
+@media (pointer: coarse) and (max-width: 768px) {
+  body {
+    background-color: transparent;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   header {
     width: 100%;
     grid-template-columns: 1fr;
+    gap: 12px;
     padding: 10px;
     text-align: center;
   }
+
   header img {
     width: 120px;
     margin: auto;
   }
 
-  /* Menu */
   nav ul {
     display: flex;
     flex-direction: column;
@@ -230,53 +236,101 @@ section .indicators ul .active {
     gap: 12px;
   }
 
-  /* Área principal */
   section {
-    min-height: 100vh;   /* ocupa toda a tela */
     height: auto;
-    padding-top: 120px;  /* espaço para o header fixo */
+    padding-top: 100px;
+  }
+
+  section .list {
+    width: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
   }
 
-  /* Imagem */
-  section .list .item .dog-img {
-    position: relative;  /* anula o absolute */
-    top: auto;
-    transform: none;
+  section .list .item {
+    position: relative;
     width: 100%;
-    margin: 0 auto;
+    opacity: 1;
+    transform: none;
   }
+
+  section .list .item .dog-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
   section .list .item .dog-img img {
     width: 100%;
     height: auto;
-    object-fit: cover;   /* ocupa toda a largura sem distorcer */
+    object-fit: cover;
     transform: none;
   }
-  section .list .item .dog-img::before {
-    display: none;       /* remove sombra que atrapalha */
-  }
 
-  /* Conteúdo */
   section .list .item .content {
-    position: relative;  /* anula o right:100px */
-    right: auto;
+    position: static;
     width: 100%;
     padding: 20px;
     text-align: center;
     align-items: center;
+    gap: 16px;
   }
+
   section .list .item .content h2 {
     font-size: 2em;
+    color: #beff1b;
   }
+
   section .list .item .content .description {
     font-size: 14px;
+    color: #beff1b;
     max-width: 90%;
     margin: auto;
+    text-align: center;
+  }
+
+  section .list .item .content .information {
+    margin-top: 10px;
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #beff1b;
+    color: #000;
+    border: none;
+    border-radius: 20px;
+  }
+
+  section .arrow {
+    position: static;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  section .indicators {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  section .indicators .number {
+    font-size: 2em;
+  }
+
+  section .indicators ul {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  section .indicators ul li {
+    width: 30px;
+    height: 4px;
   }
 }
+
 
 
 /* TABLET (769px até 1024px) */
