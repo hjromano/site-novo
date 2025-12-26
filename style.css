@@ -208,35 +208,76 @@ section .indicators ul .active {
 }
 
 /* CELULAR (até 768px) */
+
 @media screen and (max-width: 768px) {
+  /* Cabeçalho */
   header {
     width: 100%;
     grid-template-columns: 1fr;
-    gap: 12px;
     padding: 10px;
+    text-align: center;
   }
-  header img { width: 120px; margin: auto; }
-  nav ul { grid-template-columns: 1fr; text-align: center; }
-
-  section { height: auto; padding-top: 100px; }
-  .list { width: 100%; }
-  .dog-img { width: 100%; }
-  .dog-img img { transform: rotate(0); }
-
-  .content {
-    right: 0; width: 100%; align-items: center; text-align: center;
+  header img {
+    width: 120px;
+    margin: auto;
   }
-  .content h2 { font-size: 2em; }
-  .content .description { font-size: 14px; max-width: 90%; text-align: center; }
-  .content .information { width: 100px; height: 30px; font-size: 12px; }
 
-  .arrow { width: 100%; }
-  .arrow button { width: 40px; height: 40px; }
-  .arrow button img { width: 60px; margin: -10px 0 0 -10px; }
+  /* Menu */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 
-  .indicators .number { font-size: 2em; text-align: center; }
-  .indicators ul li { width: 30px; height: 4px; }
+  /* Área principal */
+  section {
+    min-height: 100vh;   /* ocupa toda a tela */
+    height: auto;
+    padding-top: 120px;  /* espaço para o header fixo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Imagem */
+  section .list .item .dog-img {
+    position: relative;  /* anula o absolute */
+    top: auto;
+    transform: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+  section .list .item .dog-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;   /* ocupa toda a largura sem distorcer */
+    transform: none;
+  }
+  section .list .item .dog-img::before {
+    display: none;       /* remove sombra que atrapalha */
+  }
+
+  /* Conteúdo */
+  section .list .item .content {
+    position: relative;  /* anula o right:100px */
+    right: auto;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+  }
+  section .list .item .content h2 {
+    font-size: 2em;
+  }
+  section .list .item .content .description {
+    font-size: 14px;
+    max-width: 90%;
+    margin: auto;
+  }
 }
+
 
 /* TABLET (769px até 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
