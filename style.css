@@ -10,10 +10,10 @@
 /* CORPO DA PÁGINA */
 body {
   font-family: Arial, sans-serif;
-  background-color: #000; /* fundo preto */
-  color: #fff;            /* texto branco */
+  background-color: #000;
+  color: #fff;
   font-size: 16px;
-  overflow: hidden;        /* impede rolagem */
+  /* Remove overflow: hidden do body para evitar conflitos em algumas situações */
 }
 
 /* --- MOBILE FIRST: ESTILOS BASE (MÓVEL POR PADRÃO) --- */
@@ -21,41 +21,41 @@ body {
 /* CABEÇALHO (Layout móvel padrão: itens empilhados) */
 header {
   position: fixed;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100vw; /* Garante 100% da largura da tela */
+  left: 0; /* Alinha à esquerda */
+  transform: none; /* Remove transform para simplificar o posicionamento */
   display: grid;
-  grid-template-columns: 1fr; /* Coluna única para mobile */
+  grid-template-columns: 1fr;
   gap: 12px;
   align-items: center;
   z-index: 2;
   padding: 10px;
 }
 header img {
-  width: 120px; /* Logo menor em mobile */
+  width: 120px;
   margin: auto;
 }
 nav ul {
   display: grid;
-  grid-template-columns: 1fr; /* Links em coluna única */
+  grid-template-columns: 1fr;
   text-align: center;
 }
 
 /* ÁREA PRINCIPAL E LISTA DE SLIDES */
 section {
   background-image: radial-gradient(blueviolet, gold);
-  height: auto; /* Altura automática para mobile */
+  height: 100vh; /* Usa 100vh para cobrir a tela inteira sem rolagem vertical */
   position: relative;
   padding-top: 100px; /* Adiciona espaço abaixo do cabeçalho fixo */
 }
 section .list {
-  width: 100%; /* Largura total para mobile */
+  width: 100vw; /* Garante 100% da largura da tela */
   margin: auto;
-  height: auto; /* Altura automática para mobile */
+  height: calc(100vh - 100px); /* Ocupa o restante da altura da tela */
   position: relative;
 }
 section .list .item {
-  position: absolute; /* Mantém o posicionamento absoluto para a animação */
+  position: absolute;
   inset: 0;
   opacity: 0;
   transform: translateX(100vw);
@@ -71,14 +71,13 @@ section .list .item .dog-img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 100%; /* Imagem ocupa 100% da largura em mobile */
+  width: 100%;
 }
 section .list .item .dog-img img {
   width: 100%;
-  transform: rotate(0deg); /* Sem rotação em mobile */
+  transform: rotate(0deg);
   transition: 0.5s 0.3s;
 }
-/* A sombra pode ser ajustada ou removida para mobile se desejar */
 section .list .item .dog-img::before {
   content: '';
   position: absolute;
@@ -94,15 +93,15 @@ section .list .item .dog-img::before {
 /* CONTEÚDO DO SLIDE (Ajustes para mobile) */
 section .list .item .content {
   position: absolute;
-  right: 0; /* Alinha à direita, mas a largura total centralizará */
+  right: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center;
   gap: 20px;
-  text-align: center; /* Centraliza o texto */
+  text-align: center;
 }
 /* Mantém as transições de opacidade/transformação */
 section .list .item .content h2,
@@ -121,9 +120,9 @@ section .list .item.active .content .information {
   opacity: 1;
 }
 
-/* ESTILOS DO TEXTO E BOTÃO (Ajustes para mobile) */
+/* ESTILOS DO TEXTO E BOTÃO */
 section .list .item .content h2 {
-  font-size: 2em; /* Fonte menor em mobile */
+  font-size: 2em;
   line-height: 1em;
   font-family: "League Gothic", sans-serif;
   color: #beff1b;
@@ -134,13 +133,13 @@ section .list .item .content .dog-information {
 }
 section .list .item .content .description {
   color: #beff1b;
-  font-size: 14px; /* Fonte menor em mobile */
+  font-size: 14px;
   text-align: center;
-  max-width: 90%; /* Ajuste de largura */
+  max-width: 90%;
 }
 section .list .item .content .information {
   border-radius: 30px;
-  height: 30px; /* Botão menor em mobile */
+  height: 30px;
   width: 100px;
   text-transform: uppercase;
   border: 2px solid #000;
@@ -153,7 +152,7 @@ section .list .item .content .information {
 
 /* BOTÕES DE NAVEGAÇÃO (SETAS) */
 section .arrow {
-  width: 100%; /* Largura total em mobile */
+  width: 100vw;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -162,7 +161,7 @@ section .arrow {
   justify-content: space-between;
 }
 section .arrow button {
-  width: 40px; /* Botões menores em mobile */
+  width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
@@ -190,17 +189,17 @@ section .indicators {
   gap: 15px;
 }
 section .indicators .number {
-  font-size: 2em; /* Número menor em mobile */
+  font-size: 2em;
   font-family: "League Gothic", sans-serif;
   text-align: center;
 }
 section .indicators ul {
   display: flex;
   gap: 10px;
-  justify-content: center; /* Centraliza os indicadores */
+  justify-content: center;
 }
 section .indicators ul li {
-  width: 30px; /* Barras menores em mobile */
+  width: 30px;
   height: 4px;
   background-color: #beff1b;
   border-radius: 5px;
@@ -211,7 +210,7 @@ section .indicators ul .active {
 }
 
 
-/* --- MEDIA QUERIES: ESTILOS PARA TELAS MAIORES (ADICIONAM COMPLEXIDADE) --- */
+/* --- MEDIA QUERIES: ESTILOS PARA TELAS MAIORES --- */
 
 /* TABLET (min-width: 769px) */
 @media screen and (min-width: 769px) {
@@ -257,17 +256,17 @@ section .indicators ul .active {
   nav ul { grid-template-columns: repeat(3, 200px); }
 
   .list { width: 70%; }
-  .content { right: 100px; } /* Reposiciona o conteúdo para desktop */
+  .content { right: 100px; }
   .content h2 { font-size: 4em; }
   .content .description { font-size: 16px; }
   .indicators .number { font-size: 5em; }
 
   /* Dog image styles that rely on desktop positioning */
   section .list .item .dog-img {
-    width: 70%; /* Usa 70% da largura em desktop */
+    width: 70%;
   }
   section .list .item.active .dog-img img {
-    transform: rotate(-20deg); /* Adiciona a rotação em desktop */
+    transform: rotate(-20deg);
   }
   section .list .item .dog-img img {
     transform: rotate(-30deg);
@@ -296,7 +295,6 @@ section .indicators ul .active {
 
 /* Ajuste automático apenas quando a tela ficar do tamanho da imagem */
 @media screen and (max-height: 800px) {
-  /* Estes estilos são mantidos como exceção baseados na altura da tela */
   section .list .item .dog-img img {
     max-height: 90vh;
     width: auto;
