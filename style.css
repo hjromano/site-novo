@@ -16,69 +16,69 @@ body {
   overflow: hidden;        /* impede rolagem */
 }
 
-/* CABEÇALHO FIXO */
+/* --- MOBILE FIRST: ESTILOS BASE (MÓVEL POR PADRÃO) --- */
+
+/* CABEÇALHO (Layout móvel padrão: itens empilhados) */
 header {
   position: fixed;
-  width: 90vw;
+  width: 100%;
   left: 50%;
   transform: translateX(-50%);
   display: grid;
-  grid-template-columns: 1fr 600px;
-  gap: 10%;
+  grid-template-columns: 1fr; /* Coluna única para mobile */
+  gap: 12px;
   align-items: center;
   z-index: 2;
+  padding: 10px;
 }
-header img { width: 250px; }
-
-/* MENU DE NAVEGAÇÃO */
+header img {
+  width: 120px; /* Logo menor em mobile */
+  margin: auto;
+}
 nav ul {
   display: grid;
-  grid-template-columns: repeat(3, 200px);
+  grid-template-columns: 1fr; /* Links em coluna única */
+  text-align: center;
 }
 
-/* ÁREA PRINCIPAL */
+/* ÁREA PRINCIPAL E LISTA DE SLIDES */
 section {
   background-image: radial-gradient(blueviolet, gold);
-  height: 100vh;
+  height: auto; /* Altura automática para mobile */
   position: relative;
+  padding-top: 100px; /* Adiciona espaço abaixo do cabeçalho fixo */
 }
-
-/* LISTA DE SLIDES */
 section .list {
-  width: 70vw;
+  width: 100%; /* Largura total para mobile */
   margin: auto;
-  height: 100%;
+  height: auto; /* Altura automática para mobile */
   position: relative;
 }
 section .list .item {
-  position: absolute;
+  position: absolute; /* Mantém o posicionamento absoluto para a animação */
   inset: 0;
   opacity: 0;
-  transform: translateX(100vw); /* começa fora da tela */
+  transform: translateX(100vw);
   transition: 0.5s;
 }
 section .list .item.active {
   opacity: 1;
-  transform: translateX(0); /* aparece na tela */
+  transform: translateX(0);
 }
 
-/* IMAGEM DO CACHORRO */
+/* IMAGEM DO CACHORRO (Ajustes para mobile) */
 section .list .item .dog-img {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 70%;
+  width: 100%; /* Imagem ocupa 100% da largura em mobile */
 }
 section .list .item .dog-img img {
   width: 100%;
-  transform: rotate(-30deg);
+  transform: rotate(0deg); /* Sem rotação em mobile */
   transition: 0.5s 0.3s;
 }
-section .list .item.active .dog-img img {
-  transform: rotate(-20deg);
-}
-
-/* SOMBRA EMBAIXO DA IMAGEM */
+/* A sombra pode ser ajustada ou removida para mobile se desejar */
 section .list .item .dog-img::before {
   content: '';
   position: absolute;
@@ -91,18 +91,20 @@ section .list .item .dog-img::before {
   filter: blur(50px);
 }
 
-/* CONTEÚDO DO SLIDE */
+/* CONTEÚDO DO SLIDE (Ajustes para mobile) */
 section .list .item .content {
   position: absolute;
-  right: 100px;
-  width: 70%;
+  right: 0; /* Alinha à direita, mas a largura total centralizará */
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: end;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
   gap: 20px;
+  text-align: center; /* Centraliza o texto */
 }
+/* Mantém as transições de opacidade/transformação */
 section .list .item .content h2,
 section .list .item .content .dog-information,
 section .list .item .content .description,
@@ -112,16 +114,16 @@ section .list .item .content .information {
   transition: 0.7s 0.3s;
 }
 section .list .item.active .content h2,
-section .list .item.active .content .dog-information,
 section .list .item.active .content .description,
+section .list .item.active .content .dog-information,
 section .list .item.active .content .information {
   transform: translateX(0);
   opacity: 1;
 }
 
-/* ESTILOS DO TEXTO */
+/* ESTILOS DO TEXTO E BOTÃO (Ajustes para mobile) */
 section .list .item .content h2 {
-  font-size: 4em;
+  font-size: 2em; /* Fonte menor em mobile */
   line-height: 1em;
   font-family: "League Gothic", sans-serif;
   color: #beff1b;
@@ -132,14 +134,14 @@ section .list .item .content .dog-information {
 }
 section .list .item .content .description {
   color: #beff1b;
-  font-size: 12px;
-  text-align: right;
-  max-width: 400px;
+  font-size: 14px; /* Fonte menor em mobile */
+  text-align: center;
+  max-width: 90%; /* Ajuste de largura */
 }
 section .list .item .content .information {
   border-radius: 30px;
-  height: 35px;
-  width: 120px;
+  height: 30px; /* Botão menor em mobile */
+  width: 100px;
   text-transform: uppercase;
   border: 2px solid #000;
   background-color: #beff1b;
@@ -151,7 +153,7 @@ section .list .item .content .information {
 
 /* BOTÕES DE NAVEGAÇÃO (SETAS) */
 section .arrow {
-  width: 70vw;
+  width: 100%; /* Largura total em mobile */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -160,16 +162,15 @@ section .arrow {
   justify-content: space-between;
 }
 section .arrow button {
-  width: 50px;
-  height: 50px;
+  width: 40px; /* Botões menores em mobile */
+  height: 40px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
 }
 section .arrow button img {
-  width: 100px;
-  margin-top: -25px;
-  margin-left: -25px;
+  width: 60px;
+  margin: -10px 0 0 -10px;
 }
 section .arrow button:hover {
   background-color: #beff1b;
@@ -189,16 +190,18 @@ section .indicators {
   gap: 15px;
 }
 section .indicators .number {
-  font-size: 5em;
+  font-size: 2em; /* Número menor em mobile */
   font-family: "League Gothic", sans-serif;
+  text-align: center;
 }
 section .indicators ul {
   display: flex;
   gap: 10px;
+  justify-content: center; /* Centraliza os indicadores */
 }
 section .indicators ul li {
-  width: 50px;
-  height: 5px;
+  width: 30px; /* Barras menores em mobile */
+  height: 4px;
   background-color: #beff1b;
   border-radius: 5px;
   transition: 0.5s;
@@ -207,50 +210,38 @@ section .indicators ul .active {
   background-color: #fff;
 }
 
-/* CELULAR (até 768px) */
-@media screen and (max-width: 768px) {
+
+/* --- MEDIA QUERIES: ESTILOS PARA TELAS MAIORES (ADICIONAM COMPLEXIDADE) --- */
+
+/* TABLET (min-width: 769px) */
+@media screen and (min-width: 769px) {
+  /* Header */
   header {
-    width: 100%;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 10px;
+    width: 90vw;
+    grid-template-columns: 1fr 600px;
+    gap: 10%;
+    padding: 0;
   }
-  header img { width: 120px; margin: auto; }
-  nav ul { grid-template-columns: 1fr; text-align: center; }
-
-  section { height: auto; padding-top: 100px; }
-  .list { width: 100%; }
-  .dog-img { width: 100%; }
-  .dog-img img { transform: rotate(0); }
-
-  .content {
-    right: 0; width: 100%; align-items: center; text-align: center;
-  }
-  .content h2 { font-size: 2em; }
-  .content .description { font-size: 14px; max-width: 90%; text-align: center; }
-  .content .information { width: 100px; height: 30px; font-size: 12px; }
-
-  .arrow { width: 100%; }
-  .arrow button { width: 40px; height: 40px; }
-  .arrow button img { width: 60px; margin: -10px 0 0 -10px; }
-
-  .indicators .number { font-size: 2em; text-align: center; }
-  .indicators ul li { width: 30px; height: 4px; }
-}
-
-/* TABLET (769px até 1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  header img { width: 180px; }
+  header img { width: 180px; margin: 0; }
   nav ul { grid-template-columns: repeat(3, 150px); }
 
-  .list { width: 90%; }
+  /* Section/List */
+  section { height: 100vh; padding-top: 0; }
+  .list { width: 90%; height: 100%; }
+
+  /* Content */
+  .content { align-items: end; text-align: right; }
   .content h2 { font-size: 3em; }
   .content .description { font-size: 14px; }
-  .indicators .number { font-size: 3em; }
+
+  /* Indicators/Arrows */
+  .indicators .number { font-size: 3em; text-align: left; }
+  .indicators ul { justify-content: flex-start; }
+  .indicators ul li { width: 40px; }
 }
 
-/* NOTEBOOK (1025px até 1366px) */
-@media screen and (min-width: 1025px) and (max-width: 1366px) {
+/* NOTEBOOK (min-width: 1025px) */
+@media screen and (min-width: 1025px) {
   header img { width: 200px; }
   nav ul { grid-template-columns: repeat(3, 180px); }
 
@@ -260,18 +251,30 @@ section .indicators ul .active {
   .indicators .number { font-size: 4em; }
 }
 
-/* COMPUTADOR (1367px até 1920px) */
-@media screen and (min-width: 1367px) and (max-width: 1920px) {
+/* COMPUTADOR (min-width: 1367px) */
+@media screen and (min-width: 1367px) {
   header img { width: 220px; }
   nav ul { grid-template-columns: repeat(3, 200px); }
 
   .list { width: 70%; }
+  .content { right: 100px; } /* Reposiciona o conteúdo para desktop */
   .content h2 { font-size: 4em; }
   .content .description { font-size: 16px; }
   .indicators .number { font-size: 5em; }
+
+  /* Dog image styles that rely on desktop positioning */
+  section .list .item .dog-img {
+    width: 70%; /* Usa 70% da largura em desktop */
+  }
+  section .list .item.active .dog-img img {
+    transform: rotate(-20deg); /* Adiciona a rotação em desktop */
+  }
+  section .list .item .dog-img img {
+    transform: rotate(-30deg);
+  }
 }
 
-/* TV / TELAS GRANDES (acima de 1921px) */
+/* TV / TELAS GRANDES (min-width: 1921px) */
 @media screen and (min-width: 1921px) {
   header img { width: 280px; }
   nav ul { grid-template-columns: repeat(3, 250px); }
@@ -284,8 +287,7 @@ section .indicators ul .active {
 }
 
 /* ORIENTAÇÃO LANDSCAPE (qualquer dispositivo) */
-@media screen and (orientation: landscape) {
-  /* Ajustes suaves sem mudar posições absolutas */
+@media screen and (orientation: landscape) and (max-width: 1366px) {
   .list { width: 65vw; }
   .content { text-align: right; align-items: flex-end; }
   .arrow button { width: 56px; height: 56px; }
@@ -294,23 +296,21 @@ section .indicators ul .active {
 
 /* Ajuste automático apenas quando a tela ficar do tamanho da imagem */
 @media screen and (max-height: 800px) {
+  /* Estes estilos são mantidos como exceção baseados na altura da tela */
   section .list .item .dog-img img {
-    max-height: 90vh;   /* imagem se adapta à altura da tela */
-    width: auto;        /* mantém proporção */
+    max-height: 90vh;
+    width: auto;
     object-fit: contain;
   }
-
   section .list {
-    height: 100vh;      /* ocupa toda a altura da tela */
-    width: 100%;        /* ocupa toda a largura */
+    height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
   section .list .item .content {
-    max-width: 90%;     /* conteúdo se ajusta sem esticar */
+    max-width: 90%;
     text-align: center;
   }
 }
-
