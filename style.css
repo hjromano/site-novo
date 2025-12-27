@@ -210,56 +210,58 @@ section .indicators .number { font-size: 5em; }
 /* E todas as suas outras media queries originais para telas maiores (TABLET, NOTEBOOK, TV...) */
 /* ... mantenha o restante do seu código original aqui ... */
 
+
 /* AJUSTES ESPECÍFICOS PARA ORIENTAÇÃO LANDSCAPE (Até 768px de largura) */
 @media screen and (max-width: 768px) and (orientation: landscape) {
-  /* Reduz o padding superior para maximizar o espaço */
+  /* Header: Ocupa a tela inteira, centralizado e visível */
+  header {
+    width: 100%;
+    grid-template-columns: 1fr 1fr; /* Coloca logo e menu lado a lado */
+    padding: 5px 10px;
+  }
+  header img { width: 100px; margin: 0; }
+  nav ul { grid-template-columns: repeat(3, 1fr); gap: 5px; } /* Distribui links uniformemente */
+
+  /* Section: Ocupa 100% da altura visível, sem rolagem vertical */
   section {
-    padding-top: 80px;
+    padding-top: 60px; /* Espaço para o header menor */
+    height: 100vh;
   }
   .list {
-    height: calc(100vh - 80px); /* Ajusta a altura da lista */
+    height: calc(100vh - 60px); /* Altura restante */
+    width: 95%; /* Usa 95% da largura */
+    margin: auto;
   }
 
-  /* Muda o layout para que a imagem e o conteúdo fiquem lado a lado em landscape */
+  /* Muda o layout para que a imagem e o conteúdo fiquem lado a lado */
   .list .item {
     flex-direction: row; /* Coloca imagem e texto lado a lado */
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     min-height: auto;
   }
 
   /* Ajusta a largura dos elementos internos */
   .dog-img {
-    width: 45%;
+    width: 40%;
     margin-bottom: 0;
   }
+  .dog-img img { max-width: none; } /* Permite que a imagem use a largura do container */
+
   .content {
-    width: 45%;
-    text-align: left; /* Alinha o texto à esquerda */
+    width: 50%;
+    text-align: left;
     align-items: flex-start;
   }
 
-  /* Reduz o tamanho das fontes para caberem melhor */
-  .content h2 {
-    font-size: 1.5em;
-  }
-  .content .description {
-    font-size: 12px;
-  }
-  .content .information {
-    height: 25px;
-    width: 90px;
-    font-size: 10px;
-  }
+  /* Ajusta fontes para caberem melhor na tela horizontal */
+  .content h2 { font-size: 1.8em; }
+  .content .description { font-size: 11px; }
+  .content .information { height: 25px; width: 90px; font-size: 10px; }
   
-  /* Ajusta as setas e indicadores para o novo layout */
-  .arrow {
-      top: 50%;
-  }
-
-  .indicators {
-    bottom: 5px; /* Move para o rodapé em landscape */
-  }
-  .indicators .number {
-    font-size: 1.5em;
-  }
+  /* Ajusta as setas e indicadores */
+  .arrow { width: 95%; top: 50%; }
+  .indicators { bottom: 5px; width: 95%; }
+  .indicators .number { font-size: 1.5em; }
 }
