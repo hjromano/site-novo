@@ -209,3 +209,57 @@ section .indicators .number { font-size: 5em; }
 
 /* E todas as suas outras media queries originais para telas maiores (TABLET, NOTEBOOK, TV...) */
 /* ... mantenha o restante do seu código original aqui ... */
+
+/* AJUSTES ESPECÍFICOS PARA ORIENTAÇÃO LANDSCAPE (Até 768px de largura) */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  /* Reduz o padding superior para maximizar o espaço */
+  section {
+    padding-top: 80px;
+  }
+  .list {
+    height: calc(100vh - 80px); /* Ajusta a altura da lista */
+  }
+
+  /* Muda o layout para que a imagem e o conteúdo fiquem lado a lado em landscape */
+  .list .item {
+    flex-direction: row; /* Coloca imagem e texto lado a lado */
+    justify-content: space-around;
+    min-height: auto;
+  }
+
+  /* Ajusta a largura dos elementos internos */
+  .dog-img {
+    width: 45%;
+    margin-bottom: 0;
+  }
+  .content {
+    width: 45%;
+    text-align: left; /* Alinha o texto à esquerda */
+    align-items: flex-start;
+  }
+
+  /* Reduz o tamanho das fontes para caberem melhor */
+  .content h2 {
+    font-size: 1.5em;
+  }
+  .content .description {
+    font-size: 12px;
+  }
+  .content .information {
+    height: 25px;
+    width: 90px;
+    font-size: 10px;
+  }
+  
+  /* Ajusta as setas e indicadores para o novo layout */
+  .arrow {
+      top: 50%;
+  }
+
+  .indicators {
+    bottom: 5px; /* Move para o rodapé em landscape */
+  }
+  .indicators .number {
+    font-size: 1.5em;
+  }
+}
