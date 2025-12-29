@@ -293,8 +293,8 @@ section .indicators .number { font-size: 5em; }
   }
 
   section .arrow button {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
   }
 
   /* Indicadores laterais ou menores */
